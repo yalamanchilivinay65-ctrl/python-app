@@ -3,7 +3,7 @@ services:
   db:
     image: ysv26/db-image:db
     deploy:
-      replicas: 1
+      replicas: 2
     ports:
       - "3306:3306"
     networks:
@@ -12,7 +12,7 @@ services:
   auth_service:
     image: ysv26/authentication:auth
     deploy:
-      replicas: 1
+      replicas: 2
     ports:
       - "1011:5001"
     networks:
@@ -24,7 +24,7 @@ services:
   book_service:
     image: ysv26/book:book
     deploy:
-      replicas: 1
+      replicas: 2
     ports:
       - "1012:5002"
     networks:
@@ -34,7 +34,7 @@ services:
   borrow_service:
     image: ysv26/borrow:borrow
     deploy:
-      replicas: 1
+      replicas: 2
     ports:
       - "1013:5003"
     networks:
@@ -45,7 +45,7 @@ services:
   frontend:
     image: ysv26/frontend:frontend
     deploy:
-      replicas: 1
+      replicas: 2
     ports:
       - "1014:5000"
     networks:
@@ -57,4 +57,4 @@ services:
 
 networks:
   mynetwork:
-    driver: bridge
+    driver: overlay
