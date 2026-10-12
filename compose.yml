@@ -56,5 +56,5 @@ services:
       - borrow_service
 
 networks:
-  mynetwork:
+  mynetwork1:
     driver: overlay
