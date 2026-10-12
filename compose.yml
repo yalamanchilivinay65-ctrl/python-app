@@ -1,7 +1,7 @@
 ---
 services:
   db:
-    image: shaikmustafa/arshad:db
+    image: ysv26/db-image:db
     deploy:
       replicas: 1
     ports:
@@ -10,11 +10,11 @@ services:
       - mynetwork
 
   auth_service:
-    image: shaikmustafa/arshad:auth
+    image: ysv26/authentication:auth
     deploy:
       replicas: 1
     ports:
-      - "5001:5001"
+      - "1011:5001"
     networks:
       - mynetwork
     depends_on:
@@ -22,32 +22,32 @@ services:
     
 
   book_service:
-    image: shaikmustafa/arshad:book
+    image: ysv26/book:book
     deploy:
       replicas: 1
     ports:
-      - "5002:5002"
+      - "1012:5002"
     networks:
       - mynetwork
     depends_on:
       - db
   borrow_service:
-    image: shaikmustafa/arshad:borrow
+    image: ysv26/borrow:borrow
     deploy:
       replicas: 1
     ports:
-      - "5003:5003"
+      - "1013:5003"
     networks:
       - mynetwork
     depends_on:
       - db
 
   frontend:
-    image: shaikmustafa/arshad:frontend
+    image: ysv26/frontend:frontend
     deploy:
       replicas: 1
     ports:
-      - "5000:5000"
+      - "1014:5000"
     networks:
       - mynetwork
     depends_on:
