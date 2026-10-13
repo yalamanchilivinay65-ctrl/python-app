@@ -1,7 +1,7 @@
 ---
 services:
   db:
-    image: ysv26/dbimage:db
+    image: ysv26/dbimage1:db
     deploy:
       replicas: 2
     ports:
@@ -10,7 +10,7 @@ services:
       - mynetwork1
 
   auth_service:
-    image: ysv26/authimage:auth
+    image: ysv26/authimage1:auth
     deploy:
       replicas: 2
     ports:
@@ -22,7 +22,7 @@ services:
     
 
   book_service:
-    image: ysv26/bookimage:book
+    image: ysv26/bookimage1:book
     deploy:
       replicas: 2
     ports:
@@ -32,7 +32,7 @@ services:
     depends_on:
       - db
   borrow_service:
-    image: ysv26/borrowimage:borrow
+    image: ysv26/borrowimage1:borrow
     deploy:
       replicas: 2
     ports:
@@ -43,7 +43,7 @@ services:
       - db
 
   frontend:
-    image: ysv26/appimage:app
+    image: ysv26/appimage1:app
     deploy:
       replicas: 2
     ports:
